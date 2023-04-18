@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const dateFormat = require("../utils/dateFormat");
 
 const reactionSchema = new Schema({
   reactionId: {
@@ -40,9 +41,9 @@ const thoughtSchema = new Schema({
   reactions: [reactionSchema],
 });
 
-const dateFormat = (timestamp) => {
-  return new Date(timestamp).toLocaleDateString();
-};
+thoughtSchema.virtual("reactionCount").get(function () {
+  return this.reactions.length;
+});
 
 const Thought = mongoose.model("Thought", thoughtSchema);
 

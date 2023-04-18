@@ -1,4 +1,4 @@
-const { Thought } = require("../models");
+const { Thought, User } = require("../models");
 
 module.exports = {
   // Get all thoughts
@@ -33,7 +33,7 @@ module.exports = {
       .then((Thought) =>
         !Thought
           ? res.status(404).json({ message: "No Thought with that ID" })
-          : Student.deleteMany({ _id: { $in: User.students } })
+          : User.deleteMany({ _id: { $in: User.students } })
       )
       .then(() => res.json({ message: "User and students deleted!" }))
       .catch((err) => res.status(500).json(err));
