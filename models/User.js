@@ -2,6 +2,12 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const userSchema = new mongoose.Schema({
+  _id: {
+    type: String,
+    index: true,
+    required: true,
+    auto: true,
+  },
   username: {
     type: String,
     unique: true,
@@ -10,7 +16,6 @@ const userSchema = new mongoose.Schema({
   },
   email: {
     type: String,
-    required: true,
     unique: true,
     match: [/.+\@.+\..+/, "Please enter a valid email address"],
   },
