@@ -2,12 +2,6 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const userSchema = new mongoose.Schema({
-  _id: {
-    type: String,
-    index: true,
-    required: true,
-    auto: true,
-  },
   username: {
     type: String,
     unique: true,
@@ -31,6 +25,10 @@ const userSchema = new mongoose.Schema({
       ref: "User",
     },
   ],
+});
+
+userSchema.virtual("friendCount").get(function () {
+  return this.friends.length;
 });
 
 const User = mongoose.model("User", userSchema);

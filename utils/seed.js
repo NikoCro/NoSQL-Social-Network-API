@@ -7,10 +7,8 @@ connection.on("error", (err) => err);
 connection.once("open", async () => {
   console.log("connected");
 
-  // Drop existing courses
   await User.deleteMany({});
 
-  // Drop existing students
   await Thought.deleteMany({});
 
   for (let i = 0; i < 20; i++) {

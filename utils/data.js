@@ -1,31 +1,31 @@
-const userNames = [
-  "Aaron",
-  "Smith",
-  "Jones",
-  "Sarah",
-  "Nathaniel",
-  "Parker",
-  "Josh",
-  "Niko",
-  "Gabe",
-  "Angie",
-];
+// const userNames = [
+//   "Aaron",
+//   "Smith",
+//   "Jones",
+//   "Sarah",
+//   "Nathaniel",
+//   "Parker",
+//   "Josh",
+//   "Niko",
+//   "Gabe",
+//   "Angie",
+// ];
 
-const randomThoughts = [
-  "Im hungry",
-  "I cant find my phone",
-  "Josh is awesome!",
-  "I hate this show",
-  "Sky is yellow",
-  "I love to skydive",
-  "What should i clean this morning?",
-  "Hello beautiful",
-];
+// const randomThoughts = [
+//   "Im hungry",
+//   "I cant find my phone",
+//   "Josh is awesome!",
+//   "I hate this show",
+//   "Sky is yellow",
+//   "I love to skydive",
+//   "What should i clean this morning?",
+//   "Hello beautiful",
+// ];
 
-const getRandomArrItem = (arr) => arr[Math.floor(Math.random() * arr.length)];
+// const getRandomArrItem = (arr) => arr[Math.floor(Math.random() * arr.length)];
 
-const getRandomUser = () => `${getRandomArrItem(userNames)}`;
-const getRandomThought = () => `${getRandomArrItem(randomThoughts)}`;
+// const getRandomUser = () => `${getRandomArrItem(userNames)}`;
+// const getRandomThought = () => `${getRandomArrItem(randomThoughts)}`;
 
 // Function to generate random assignments that we can add to student object.
 // const getRandomAssignments = (int) => {
@@ -40,4 +40,4 @@ const getRandomThought = () => `${getRandomArrItem(randomThoughts)}`;
 // };
 
 // Export the functions for use in seed.js
-module.exports = { getRandomUser, getRandomThought };
+// module.exports = { getRandomUser, getRandomThought };
