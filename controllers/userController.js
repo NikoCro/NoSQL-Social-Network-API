@@ -57,17 +57,16 @@ module.exports = {
 
   // add a friend
   addFriend(req, res) {
-    console.log("req.params: ", req.params);
-    User.findOneAndUpdate(
-      { _id: req.params.userId },
-      { $addToSet: { friends: req.body.friendId } },
-      { runValidators: true, new: true }
-    )
-      .then((user) =>
-        !user
-          ? res.status(404).json({ message: "No user with this id!" })
-          : res.json(user)
-      )
+    User.findOne({ _id: req.params.id })
+      .then((user) => {
+        if (user) {
+          user.friends.push(req.params.id);
+          user.save();
+          res.json(user);
+        } else {
+          res.status(404).json({ message: "No user with this id!" });
+        }
+      })
       .catch((err) => res.status(500).json(err));
   },
   //remove a friend
